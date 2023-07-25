@@ -1,0 +1,31 @@
+components:
+  requestBodies:
+    DatosCrearMascota:
+      type: object
+      required:
+        - nombre
+        - especie
+        - fechaNacimiento
+      properties:
+        nombre:
+          type: string
+          description: El nombre de la mascota.
+        especie:
+          type: string
+          description: La especie de la mascota.
+        fechaNacimiento:
+          type: string
+          description: La fecha de nacimiento de la mascota.
+        adoptada:
+          type: string
+          description: Indica si la mascota se encuentra adoptada o no.
+        duenio:
+          type: string
+          description: El dueño de la mascota.
+        foto:
+          type: string
+          description: La foto de la mascota.
+      example:
+        nombre: pepe
+        especie: loro
+        fechaNacimiento: '2010-06-15'
