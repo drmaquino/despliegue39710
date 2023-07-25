@@ -9,15 +9,33 @@
 
 <body>
   <h1>Usuarios</h1>
-  <ul>
-    <li>usuario</li>
-    <li>usuario</li>
-    <li>usuario</li>
-    <li>usuario</li>
-    <li>usuario</li>
-    <li>usuario</li>
-    <li>usuario</li>
-  </ul>
+  <div id='userList'>
+    <ul>
+      <li>usuario</li>
+      <li>usuario</li>
+      <li>usuario</li>
+      <li>usuario</li>
+      <li>usuario</li>
+      <li>usuario</li>
+      <li>usuario</li>
+    </ul>
+  </div>
 </body>
+
+<script>
+  async function cargarUsuarios() {
+    const usuarios = await fetch('/api/usuarios').then(res => res.json())
+    const userListDiv = document.querySelector('#userList')
+    let html = '<ul>'
+    for (const usuario of usuarios) {
+      html += JSON.stringify(usuario)
+    }
+    html += '</ul>'
+
+    userListDiv.innerHTML = html
+  }
+
+  cargarUsuarios()
+</script>
 
 </html>
